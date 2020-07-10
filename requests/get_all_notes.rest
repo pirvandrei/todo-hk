@@ -1,0 +1,23 @@
+GET http://localhost:3001/api/notes
+
+### 
+
+DELETE http://localhost:3001/api/notes/6
+
+
+### 
+
+POST http://localhost:3001/api/notes  
+content-type: application/json
+
+{
+    "content" : "Ultimately",
+    "important" : true
+}
+
+###
+
+GET http://localhost:3001/api/nots
+
+
+### 
