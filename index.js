@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const mongoose = require('mongoose') 
 
 app.use(cors())
 app.use(express.static('build'))
@@ -42,13 +43,43 @@ let notes = [
   },
 ];
 
+const password = process.env.PASSWORD
+const url =
+`mongodb://fullstack:HcEm7O1ALnFNwh66@cluster0-shard-00-00-sy0oy.azure.mongodb.net:27017,cluster0-shard-00-01-sy0oy.azure.mongodb.net:27017,cluster0-shard-00-02-sy0oy.azure.mongodb.net:27017/react?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority`
+
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+
+const noteSchema = new mongoose.Schema({
+  content: String,
+  date: Date,
+  important: Boolean,
+})
+
+noteSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString()
+    delete returnedObject._id
+    delete returnedObject.__v
+  }
+})
+
+const Note = mongoose.model('Note', noteSchema)
+
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')
 })
 
-app.get('/api/notes', (req, res) => {
-  res.json(notes)
-})
+app.get("/api/notes", (req, res) => {
+  Note.find({})
+    .then((notes) => {
+      res.json(notes);
+      
+    })
+    .catch((error) => {
+      console.log("error connecting to MongoDB:", error.message);
+    });
+    
+});
 
 app.get("/api/notes/:id", (request, response) => {
   const id = Number(request.params.id);
