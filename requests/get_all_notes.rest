@@ -4,12 +4,13 @@ DELETE http://localhost:3001/api/notes/5f0c3898b2eaa16e6843a4e3
 ### 
 POST http://localhost:3001/api/notes  
 content-type: application/json
+
 {
-    "content" : "Don't burnout, remember the 85% rule",
+    "content" : "Donsss",
     "important" : true
 }
 ###
-GET http://localhost:3001/api/nots
+GET http://localhost:3001/api/notes
 ### 
 PUT http://localhost:3001/api/notes/5f0c3898b2eaa16e6843a4e3
 content-type: application/json
