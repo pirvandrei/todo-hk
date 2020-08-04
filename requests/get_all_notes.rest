@@ -6,8 +6,9 @@ POST http://localhost:3001/api/notes
 content-type: application/json
 
 {
-    "content" : "Donsss",
-    "important" : true
+    "content" : "Where are the limits of this",
+    "important" : true,
+    "userId": "5f29184ec0762454b8be7312"
 }
 ###
 GET http://localhost:3001/api/notes
