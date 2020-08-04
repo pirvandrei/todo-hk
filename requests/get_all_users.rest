@@ -1,0 +1,22 @@
+GET http://localhost:3001/api/users
+### 
+DELETE http://localhost:3001/api/users/5f0c3898b2eaa16e6843a4e3
+### 
+POST http://localhost:3001/api/users  
+content-type: application/json
+
+{
+    "username" : "pirvandreea",
+    "name" : "Andreea",
+    "password": "traiana"
+}
+###
+GET http://localhost:3001/api/users
+### 
+PUT http://localhost:3001/api/users/5f0c3898b2eaa16e6843a4e3
+content-type: application/json
+{
+    "username" : "Don't burnout, remember the 85% rule",
+    "name" : true,
+    "password": "traian",
+}
