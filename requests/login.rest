@@ -1,0 +1,21 @@
+POST http://localhost:3001/api/login  
+content-type: application/json
+
+{
+    "username" : "pirvandreea",
+    "password": "traiana"
+}
+###
+GET http://localhost:3001/api/login
+### 
+DELETE http://localhost:3001/api/login/5f0c3898b2eaa16e6843a4e3
+### 
+GET http://localhost:3001/api/login
+### 
+PUT http://localhost:3001/api/login/5f0c3898b2eaa16e6843a4e3
+content-type: application/json
+{
+    "username" : "Don't burnout, remember the 85% rule",
+    "name" : true,
+    "password": "traian",
+}
