@@ -4,6 +4,7 @@ DELETE http://localhost:3001/api/notes/5f0c3898b2eaa16e6843a4e3
 ### 
 POST http://localhost:3001/api/notes  
 content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBpcnZhbmRyZWVhIiwiaWQiOiI1ZjI5MTg4NGMwNzYyNDU0YjhiZTczMTMiLCJpYXQiOjE1OTY2MjA5MDh9.R5sqEnOhsAF14uXe-B-1smLGWce7MbgS8hwDGOCCUpU
 
 {
     "content" : "Where are the limits of this",
