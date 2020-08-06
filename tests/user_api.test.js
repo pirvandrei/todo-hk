@@ -1,11 +1,11 @@
 const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 const User = require('../models/user');
 const helper = require('./test_helper');
 const supertest = require('supertest');
 const app = require('../app');
 const api = supertest(app);
 
-//...
 
 describe('when there is initially one user in db', () => {
   beforeEach(async () => {
@@ -21,9 +21,9 @@ describe('when there is initially one user in db', () => {
     const usersAtStart = await helper.usersInDb();
 
     const newUser = {
-      username: 'mluukkai',
-      name: 'Matti Luukkainen',
-      password: 'salainen',
+      username: 'pirvandrei',
+      name: 'Andrei Pirvan',
+      password: 'ilieman',
     };
 
     await api
@@ -41,7 +41,6 @@ describe('when there is initially one user in db', () => {
 });
 
 describe('when there is initially one user in db', () => {
-  // ...
 
   test('creation fails with proper statuscode and message if username already taken', async () => {
     const usersAtStart = await helper.usersInDb();
@@ -63,4 +62,8 @@ describe('when there is initially one user in db', () => {
     const usersAtEnd = await helper.usersInDb();
     expect(usersAtEnd).toHaveLength(usersAtStart.length);
   });
+});
+
+afterAll(() => {
+  mongoose.connection.close();
 });
