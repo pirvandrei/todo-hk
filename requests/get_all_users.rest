@@ -20,3 +20,6 @@ content-type: application/json
     "name" : true,
     "password": "traian",
 }
+
+###
+GET https://api.unsplash.com/photos/random
